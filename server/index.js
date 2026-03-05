@@ -7,20 +7,7 @@ import gameRoutes from './routes/game.js'
 const app = express()
 const PORT = process.env.PORT || 3001
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://achtycoon.com',
-  'https://www.achtycoon.com',
-  process.env.CORS_ORIGIN,
-].filter(Boolean)
-
-app.use(cors({
-  origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) cb(null, true)
-    else cb(null, true)
-  },
-  credentials: true,
-}))
+app.use(cors())
 
 app.use(express.json())
 
