@@ -1,4 +1,5 @@
-import 'dotenv/config'
+import dotenv from 'dotenv'
+dotenv.config({ path: '.env' })
 import express from 'express'
 import cors from 'cors'
 import plaidRoutes from './routes/plaid.js'
@@ -18,6 +19,6 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: Date.now() })
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`ACH Tycoon server running on port ${PORT}`)
 })
